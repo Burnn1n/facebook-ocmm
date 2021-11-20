@@ -15,10 +15,10 @@ class Layout extends Component {
           dynamic header
           */}
           <Header />
-          <div className="pt-20 mx-auto px-5" style={{ maxWidth: "1336px" }}>
+          <div className="pt-12 mx-auto px-5" style={{ maxWidth: "1336px" }}>
             {this.props.children}
           </div>
-          {/* <Footer /> */}
+          <Footer />
         </div>
         {/* <Rightbar /> */}
       </React.Fragment>
