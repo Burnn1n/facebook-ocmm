@@ -11,11 +11,14 @@ const Header = ({ history }) => {
         >
           <div className="logo">
             <Link to="/">
-              <img
-                src="https://www.nicepng.com/png/full/177-1772556_logo-no-background-grey-large-cool-logos-with.png"
-                alt=""
-                className="w-7 h-7"
-              />
+              <div className="flex text-center items-center">
+                <img
+                  src="https://www.nicepng.com/png/full/177-1772556_logo-no-background-grey-large-cool-logos-with.png"
+                  alt=""
+                  className="w-7 h-7 object-cover"
+                />
+                <span className="font-bold text-2xl text-gray-500">Sparta</span>
+              </div>
             </Link>
           </div>
           <div className="login">

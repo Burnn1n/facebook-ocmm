@@ -5,13 +5,25 @@ const Footer = ({ history }) => {
     <React.Fragment>
       <div className="w-full">
         <div className="p-10 mx-auto" style={{ maxWidth: "1336px" }}>
-          <div className="flex w-full">
-            <div className="w-1/3">
-              <p>sparta</p>
+          <div className="flex w-full flex-wrap">
+            <div className="w-1/3 sm:w-full">
+              <div className="flex text-center items-center mb-4">
+                <img
+                  src="https://www.nicepng.com/png/full/177-1772556_logo-no-background-grey-large-cool-logos-with.png"
+                  alt=""
+                  className="w-20 h-20 object-cover"
+                />
+                <span className="font-bold text-2xl text-gray-500">Sparta</span>
+              </div>
+
+              <p className="font-medium text-gray-900">
+                Таны Facebook-ын бүх сэтгэгдлүүд, удирдахад хялбар мэдээллийн
+                нэг дор.
+              </p>
             </div>
-            <div className="flex justify-between w-2/3">
+            <div className="flex justify-between w-2/3 sm:w-full flex-wrap">
               <div>
-                <p className="font-bold text-xl text-gray-200 uppercase">
+                <p className="font-bold text-xl sm:text-base text-gray-300 uppercase">
                   Платформ
                 </p>
                 <div className="text-gray-500 pt-6">
@@ -24,7 +36,7 @@ const Footer = ({ history }) => {
                 </div>
               </div>
               <div>
-                <p className="font-bold text-xl text-gray-200 uppercase">
+                <p className="font-bold text-xl sm:text-base text-gray-300 uppercase">
                   RESOURCES
                 </p>
                 <div className="text-gray-500 pt-6">
@@ -36,7 +48,7 @@ const Footer = ({ history }) => {
                 </div>
               </div>
               <div>
-                <p className="font-bold text-xl text-gray-200 uppercase">
+                <p className="font-bold text-xl sm:text-base text-gray-300 uppercase">
                   Холбоо барих
                 </p>
                 <div className="text-gray-500 pt-6">
@@ -54,7 +66,7 @@ const Footer = ({ history }) => {
                 </div>
               </div>
               <div>
-                <p className="font-bold text-xl text-gray-200 uppercase">
+                <p className="font-bold text-xl sm:text-base text-gray-300 uppercase">
                   Хууль зүй
                 </p>
                 <div className="text-gray-500 pt-6">

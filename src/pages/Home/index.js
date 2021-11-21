@@ -1,4 +1,38 @@
 import React, { useEffect, useState } from "react";
+const svgReturner = (type) => {
+  return type !== "check" ? (
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      strokeWidth="0"
+      viewBox="0 0 24 24"
+      focusable="false"
+      className="chakra-icon css-1usqyu9"
+      aria-hidden="true"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
+    </svg>
+  ) : (
+    <svg
+      stroke="rgb(169 169 169)"
+      fill="none"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      focusable="false"
+      className="chakra-icon css-50jb0o"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  );
+};
 function Home({ history }) {
   return (
     <React.Fragment>
@@ -17,64 +51,22 @@ function Home({ history }) {
           </button>
           <div className="flex mt-5 text-gray-400">
             <div className=" mx-3 flex items-center">
-              <svg
-                stroke="rgb(169 169 169)"
-                fill="none"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                focusable="false"
-                class="chakra-icon css-50jb0o"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              {svgReturner("check")}
               <span className="ml-1">Тохируулахад амархан</span>
             </div>
             <div className=" mx-3 flex items-center">
-              <svg
-                stroke="rgb(169 169 169)"
-                fill="none"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                focusable="false"
-                class="chakra-icon css-50jb0o"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              {svgReturner("check")}
               <span className="ml-1">Кардны мэдээлэл хэрэггүй</span>
             </div>
             <div className=" mx-3 flex items-center">
-              <svg
-                stroke="rgb(169 169 169)"
-                fill="none"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                focusable="false"
-                class="chakra-icon css-50jb0o"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
+              {svgReturner("check")}
               <span className="ml-1">Ашиглахад аюулгүй</span>
             </div>
           </div>
         </div>
         <div className="w-full my-20">
           <div className="flex justify-center">
-            <video width="800" loop="" autoplay="">
+            <video loop={true} autoPlay={true}>
               <source
                 src="https://combox.app/_next/static/videos/demo-c9406191aa1a4780f0fbf7641d4acfa6.mp4"
                 type="video/mp4"
@@ -85,35 +77,20 @@ function Home({ history }) {
           <div className="mt-12 w-1/2 mx-auto text-center">
             <p className="text-2xl text-gray-500">
               Бодлоготой хариултуудыг боловсруулахад илүү их цаг зарцуулж,
-              Instagram дээрх мэдэгдлийн сувгийг эрэмбэлэхэд бага цаг
+              Facebook дээрх мэдэгдлийн сувгийг эрэмбэлэхэд бага цаг
               зарцуулаарай.
             </p>
             <button className="py-2 px-4 rounded-lg hover:bg-blue-100 mt-7 font-bold text-blue-600 text-xl">
               <div className="flex items-center text-center">
                 <span className="mr-2">Үнэгүй эхлээрэй</span>
-                <span className="pt-1">
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    stroke-width="0"
-                    viewBox="0 0 24 24"
-                    focusable="false"
-                    class="chakra-icon css-1usqyu9"
-                    aria-hidden="true"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
-                  </svg>
-                </span>
+                <span className="pt-1">{svgReturner()}</span>
               </div>
             </button>
           </div>
         </div>
         <div className="my-32">
-          <div className="flex">
-            <div className="w-full flex items-center px-5">
+          <div className="flex flex-wrap">
+            <div className="w-1/2 sm:w-full flex items-center px-5">
               <div>
                 <p className="font-bold text-3xl text-gray-900">
                   Хийсэн нийтлэл болгондоо ирсэн сэтгэгдлүүдийг хараарай.
@@ -126,27 +103,12 @@ function Home({ history }) {
                 <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
                   <div className="flex items-center text-center">
                     <span className="mr-2">Үнэгүй эхлээрэй</span>
-                    <span className="pt-1">
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 24 24"
-                        focusable="false"
-                        class="chakra-icon css-1usqyu9"
-                        aria-hidden="true"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
-                      </svg>
-                    </span>
+                    <span className="pt-1">{svgReturner()}</span>
                   </div>
                 </button>
               </div>
             </div>
-            <div className="w-full">
+            <div className="w-1/2 sm:w-full">
               <img
                 src="https://combox.app/_next/static/images/all-comments-8d246ce6ee40a3285cb6e28b5922f361.jpg"
                 alt=""
@@ -156,15 +118,15 @@ function Home({ history }) {
           </div>
         </div>
         <div className="my-32">
-          <div className="flex">
-            <div className="w-full">
+          <div className="flex flex-wrap">
+            <div className="w-1/2 sm:w-full">
               <img
                 src="https://combox.app/_next/static/images/feeds-0d76572644c3dd79b82a3e26e1a74e79.jpg"
                 alt=""
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className="w-full flex items-center px-5">
+            <div className="w-1/2 sm:w-full flex items-center px-5">
               <div>
                 <p className="font-bold text-3xl text-gray-900">
                   Спамыг устгаж, хамгийн чухал сэтгэгдэлд анхаарлаа
@@ -178,22 +140,7 @@ function Home({ history }) {
                 <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
                   <div className="flex items-center text-center">
                     <span className="mr-2">Үнэгүй эхлээрэй</span>
-                    <span className="pt-1">
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 24 24"
-                        focusable="false"
-                        class="chakra-icon css-1usqyu9"
-                        aria-hidden="true"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
-                      </svg>
-                    </span>
+                    <span className="pt-1">{svgReturner()}</span>
                   </div>
                 </button>
               </div>
@@ -201,8 +148,8 @@ function Home({ history }) {
           </div>
         </div>
         <div className="my-32">
-          <div className="flex">
-            <div className="w-full flex items-center px-5">
+          <div className="flex flex-wrap">
+            <div className="w-1/2 sm:w-full flex items-center px-5">
               <div>
                 <p className="font-bold text-3xl text-gray-900">
                   Түгээмэл асуултуудын хариултыг хэзээ ч дахин бүү бич.
@@ -214,27 +161,12 @@ function Home({ history }) {
                 <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
                   <div className="flex items-center text-center">
                     <span className="mr-2">Үнэгүй эхлээрэй</span>
-                    <span className="pt-1">
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 24 24"
-                        focusable="false"
-                        class="chakra-icon css-1usqyu9"
-                        aria-hidden="true"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path>
-                      </svg>
-                    </span>
+                    <span className="pt-1">{svgReturner()}</span>
                   </div>
                 </button>
               </div>
             </div>
-            <div className="w-full">
+            <div className="w-1/2 sm:w-full">
               <img
                 src="https://combox.app/_next/static/images/saved-replies-7daa0935c441e499c9e86669d90f6c18.jpg"
                 alt=""
@@ -258,57 +190,15 @@ function Home({ history }) {
             <div className="w-full flex justify-center">
               <div className="flex mt-5 text-gray-400">
                 <div className=" mx-3 flex items-center">
-                  <svg
-                    stroke="rgb(169 169 169)"
-                    fill="none"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    focusable="false"
-                    class="chakra-icon css-50jb0o"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  {svgReturner("check")}
                   <span className="ml-1">Тохируулахад амархан</span>
                 </div>
                 <div className=" mx-3 flex items-center">
-                  <svg
-                    stroke="rgb(169 169 169)"
-                    fill="none"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    focusable="false"
-                    class="chakra-icon css-50jb0o"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  {svgReturner("check")}
                   <span className="ml-1">Кардны мэдээлэл хэрэггүй</span>
                 </div>
                 <div className=" mx-3 flex items-center">
-                  <svg
-                    stroke="rgb(169 169 169)"
-                    fill="none"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    focusable="false"
-                    class="chakra-icon css-50jb0o"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
+                  {svgReturner("check")}
                   <span className="ml-1">Ашиглахад аюулгүй</span>
                 </div>
               </div>
