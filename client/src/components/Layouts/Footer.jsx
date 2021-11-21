@@ -13,7 +13,7 @@ const Footer = ({ history }) => {
                   alt=""
                   className="w-20 h-20 object-cover"
                 />
-                <span className="font-bold text-2xl text-gray-500">Sparta</span>
+                <span className="font-bold text-2xl text-blue-600">Sparta</span>
               </div>
 
               <p className="font-medium text-gray-900">
@@ -30,7 +30,7 @@ const Footer = ({ history }) => {
                   <a href="/">
                     <p className="hover:underline text-lg mb-3">Веб хуудас</p>
                   </a>
-                  <a href="facebook.com">
+                  <a href="/tulbur">
                     <p className="hover:underline text-lg">Төлбөрийн нөхцөл</p>
                   </a>
                 </div>

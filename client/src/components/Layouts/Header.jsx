@@ -17,12 +17,21 @@ const Header = ({ history }) => {
                   alt=""
                   className="w-7 h-7 object-cover"
                 />
-                <span className="font-bold text-2xl text-gray-500">Sparta</span>
+                <span className="font-bold text-2xl text-blue-600">Sparta</span>
               </div>
             </Link>
           </div>
-          <div className="login">
-            <Link to="/admin">admin</Link>
+          <div className="flex">
+            <Link to="/tulbur">
+              <div className="hover:bg-blue-100 py-2 px-5 rounded-lg">
+                Төлбөрийн нөхцөл
+              </div>
+            </Link>
+            <Link to="/login">
+              <div className="hover:bg-blue-100 py-2 px-5 rounded-lg text-blue-600">
+                Нэвтрэх
+              </div>
+            </Link>
           </div>
         </div>
       </header>

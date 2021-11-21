@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 const svgReturner = (type) => {
   return type !== "check" ? (
     <svg
@@ -34,8 +36,12 @@ const svgReturner = (type) => {
   );
 };
 function Home({ history }) {
+  const TITLE = "Sparta || Нүүр хуудас";
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{TITLE}</title>
+      </Helmet>
       <div className=" mt-12 font-sans">
         <div className="w-3/4 my-20">
           <div className="text-4xl font-bold text-gray-900">
@@ -46,9 +52,12 @@ function Home({ history }) {
             Сэтгэгдэлд хурдан хариулж, спамыг устгаж, үзэгчидтэйгээ
             холбогдоорой.
           </div>
-          <button className="bg-blue-600 rounded-xl py-2 px-7 text-white font-bold text-lg">
-            Үнэгүй хаяг нээх
-          </button>
+          <Link to="/register">
+            <button className="bg-blue-600 rounded-xl py-2 px-7 text-white font-bold text-lg">
+              Үнэгүй хаяг нээх
+            </button>
+          </Link>
+
           <div className="flex mt-5 text-gray-400">
             <div className=" mx-3 flex items-center">
               {svgReturner("check")}
@@ -80,12 +89,14 @@ function Home({ history }) {
               Facebook дээрх мэдэгдлийн сувгийг эрэмбэлэхэд бага цаг
               зарцуулаарай.
             </p>
-            <button className="py-2 px-4 rounded-lg hover:bg-blue-100 mt-7 font-bold text-blue-600 text-xl">
-              <div className="flex items-center text-center">
-                <span className="mr-2">Үнэгүй эхлээрэй</span>
-                <span className="pt-1">{svgReturner()}</span>
-              </div>
-            </button>
+            <Link to="/register">
+              <button className="py-2 px-4 rounded-lg hover:bg-blue-100 mt-7 font-bold text-blue-600 text-xl">
+                <div className="flex items-center text-center">
+                  <span className="mr-2">Үнэгүй эхлээрэй</span>
+                  <span className="pt-1">{svgReturner()}</span>
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
         <div className="my-32">
@@ -100,12 +111,14 @@ function Home({ history }) {
                   хуучин нийтлэлүүд дээр ирсэн сэтгэгдлүүдийн талаар үргэлж
                   мэдэгдээрэй.
                 </p>
-                <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
-                  <div className="flex items-center text-center">
-                    <span className="mr-2">Үнэгүй эхлээрэй</span>
-                    <span className="pt-1">{svgReturner()}</span>
-                  </div>
-                </button>
+                <Link to="register">
+                  <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
+                    <div className="flex items-center text-center">
+                      <span className="mr-2">Үнэгүй эхлээрэй</span>
+                      <span className="pt-1">{svgReturner()}</span>
+                    </div>
+                  </button>{" "}
+                </Link>
               </div>
             </div>
             <div className="w-1/2 sm:w-full">
@@ -137,12 +150,14 @@ function Home({ history }) {
                   тулгуурлан өөр өөр төрлийн сэтгэгдлийг тус тусад нь
                   дамжуулаарай.
                 </p>
-                <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
-                  <div className="flex items-center text-center">
-                    <span className="mr-2">Үнэгүй эхлээрэй</span>
-                    <span className="pt-1">{svgReturner()}</span>
-                  </div>
-                </button>
+                <Link to="register">
+                  <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
+                    <div className="flex items-center text-center">
+                      <span className="mr-2">Үнэгүй эхлээрэй</span>
+                      <span className="pt-1">{svgReturner()}</span>
+                    </div>
+                  </button>{" "}
+                </Link>
               </div>
             </div>
           </div>
@@ -158,12 +173,14 @@ function Home({ history }) {
                   Байнга асуудаг асуултуудын хариултыг дахин бичих гэж цаг бүү
                   үр. Хадгалсан хариултуудыг нэг товшилтоор илгээх боломжтой.
                 </p>
-                <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
-                  <div className="flex items-center text-center">
-                    <span className="mr-2">Үнэгүй эхлээрэй</span>
-                    <span className="pt-1">{svgReturner()}</span>
-                  </div>
-                </button>
+                <Link to="register">
+                  <button className=" rounded-lg hover:underline mt-2 font-bold text-blue-600 text-xl">
+                    <div className="flex items-center text-center">
+                      <span className="mr-2">Үнэгүй эхлээрэй</span>
+                      <span className="pt-1">{svgReturner()}</span>
+                    </div>
+                  </button>{" "}
+                </Link>
               </div>
             </div>
             <div className="w-1/2 sm:w-full">
@@ -184,9 +201,12 @@ function Home({ history }) {
               Үр дүнтэй, бодолтой: Facebook дээрх сэтгэгдэлд хариу өгөх илүү
               сайн арга.
             </p>
-            <button className="bg-blue-600 rounded-xl py-2 px-7 text-white font-bold text-lg mt-10">
-              Үнэгүй хаяг нээх
-            </button>
+            <Link to="register">
+              <button className="bg-blue-600 rounded-xl py-2 px-7 text-white font-bold text-lg mt-10">
+                Үнэгүй хаяг нээх
+              </button>{" "}
+            </Link>
+
             <div className="w-full flex justify-center">
               <div className="flex mt-5 text-gray-400">
                 <div className=" mx-3 flex items-center">
