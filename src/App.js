@@ -9,16 +9,18 @@ function App() {
   return (
     <React.Fragment>
       <Router>
-        {Routes.map((route, idx) => (
-          <AppRoute
-            path={route.path}
-            layout={Layout}
-            component={route.component}
-            key={idx}
-            //isAuthProtected={true}
-            exact
-          />
-        ))}
+        {Routes.map((route, idx) => {
+          return (
+            <AppRoute
+              path={route.path}
+              layout={Layout}
+              component={route.component}
+              key={idx}
+              //isAuthProtected={true}
+              exact
+            />
+          );
+        })}
       </Router>
     </React.Fragment>
   );

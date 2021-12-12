@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React from "react";
+
 import { Helmet } from "react-helmet";
 
 const Pricing = ({ history }) => {
@@ -9,7 +8,7 @@ const Pricing = ({ history }) => {
       <svg
         stroke="currentColor"
         fill="currentColor"
-        stroke-width="0"
+        strokeWidth="0"
         viewBox="0 0 24 24"
         focusable="false"
         class="chakra-icon css-1p2bo7r"
@@ -23,7 +22,7 @@ const Pricing = ({ history }) => {
       <svg
         stroke="rgb(34, 68, 236)"
         fill="rgb(34, 68, 236)"
-        stroke-width="0"
+        strokeWidth="0"
         viewBox="0 0 512 512"
         focusable="false"
         class="chakra-icon css-19ycw37"

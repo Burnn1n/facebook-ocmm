@@ -1,29 +1,85 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Axios from "axios";
 
 const Register = ({ history }) => {
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      history.push("/");
+    }
+  }, []);
+
+  console.log(JSON.parse(localStorage.getItem("user")));
+
   const TITLE = "Sparta || Нэвтрэх";
   const [nameInput, setNameInput] = useState("");
   const [errorName, setErrorName] = useState(true);
   const [errorNameText, setErrorNameText] = useState("Алдаа");
 
   const [emailInput, setEmailInput] = useState("");
-  const [errorEmail, setErrorEmail] = useState(true);
+  const [errorEmail, setErrorEmail] = useState(false);
   const [errorEmailText, setErrorEmailText] = useState("Алдаа");
 
   const [passwordInput, setPasswordInput] = useState("");
   const [errorPasswordText, setErrorPasswordText] = useState("Алдаа");
-  const [errorPassword, setErrorPassword] = useState(true);
+  const [errorPassword, setErrorPassword] = useState(false);
 
   const [passwordInput1, setPasswordInput1] = useState("");
   const [errorPasswordText1, setErrorPasswordText1] = useState("Алдаа");
   const [errorPassword1, setErrorPassword1] = useState(false);
+
+  const [igName, setIgName] = useState("");
+
+  const [sqlError, setSqlError] = useState(0); //0 bol yu ch hiihgui 1 bol amjilttai insert hiigdsen busad bol aldaa
   const handleSubmit = (event) => {
-    alert("A name was submitted: " + emailInput);
+    var success = 0;
+    if (nameInput.length < 4) {
+      setErrorName(true);
+      setErrorNameText("4-с богино байж болохгүй");
+    } else {
+      setErrorName(false);
+      success++;
+    }
+    if (passwordInput.length < 4) {
+      setErrorPassword(true);
+      setErrorPasswordText("Нууц үгийн тоо 4-с бага байна");
+    } else {
+      setErrorPassword(false);
+      success++;
+    }
+    if (passwordInput !== passwordInput1) {
+      setErrorPassword1(true);
+      setErrorPasswordText1("Нууц үг зөрж байна");
+    } else {
+      setErrorPassword1(false);
+      success++;
+    }
+    if (success === 3) {
+      Axios.post("http://localhost:3001/register", {
+        username: nameInput,
+        email: emailInput,
+        igName: igName,
+        password: passwordInput,
+      }).then((response) => {
+        console.log(response);
+        if (response.data.err) {
+          setSqlError(response.data.err.errno);
+        } else {
+          setSqlError(1);
+        }
+      });
+    }
     event.preventDefault();
   };
+  useEffect(() => {
+    if (sqlError === 1062) {
+      setErrorEmail(true);
+      setErrorEmailText("Бүртгэгдсэн имэйл байна");
+    } else {
+      setErrorEmail(false);
+    }
+  }, [sqlError]);
   return (
     <React.Fragment>
       <Helmet>
@@ -52,7 +108,7 @@ const Register = ({ history }) => {
                   type="text"
                   className={`bg-gray-100 p-2 rounded-lg focus:outline-none border border-gray-100 focus:border-blue-600
 									w-full ${errorName ? "border-red-600" : ""}`}
-                  placeholder="Нууц үг"
+                  placeholder="Нэвтрэх нэр"
                   onChange={(event) => setNameInput(event.target.value)}
                 />
                 <div
@@ -101,6 +157,16 @@ const Register = ({ history }) => {
                   </svg>
                   <p className="ml-1 text-red-600 text-xs">{errorEmailText}</p>
                 </div>
+              </label>
+              <label>
+                <p className="mb-2 mt-5">Instagram нэр</p>
+                <input
+                  type="text"
+                  className={`bg-gray-100 p-2 rounded-lg focus:outline-none border border-gray-100 focus:border-blue-600
+									w-full`}
+                  placeholder="Instagram нэр"
+                  onChange={(event) => setIgName(event.target.value)}
+                />
               </label>
               <label>
                 <p className="mb-2 mt-5">Нууц үг</p>
@@ -162,9 +228,33 @@ const Register = ({ history }) => {
                   </p>
                 </div>
               </label>
+              <div
+                class={`bg-green-100 rounded-md p-3 flex mt-10 ${
+                  sqlError === 1 ? "" : "hidden"
+                }`}
+              >
+                <svg
+                  class="stroke-2 stroke-current text-green-600 h-8 w-8 mr-2 flex-shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M0 0h24v24H0z" stroke="none" />
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+
+                <div class="text-green-700">
+                  <div class="font-bold text-xl">Амжилттай бүртгэлээ</div>
+                  <Link to="/login">
+                    <p className="underline">Нэвтрэх хэсэг рүү очих</p>
+                  </Link>
+                </div>
+              </div>
               <input
                 type="submit"
-                className="bg-blue-600 text-white rounded-lg py-2 w-full mt-10 cursor-pointer"
+                className="bg-blue-600 text-white rounded-lg py-2 w-full mt-4 cursor-pointer"
                 value="Хаяг нээх"
               />
             </form>

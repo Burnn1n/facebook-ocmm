@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import React from "react";
+//import { withRouter } from "react-router-dom";
 const Footer = ({ history }) => {
   return (
     <React.Fragment>
-      <div className="w-full">
+      <div className="w-full border-t">
         <div className="p-10 mx-auto" style={{ maxWidth: "1336px" }}>
           <div className="flex w-full flex-wrap">
             <div className="w-1/3 sm:w-full">

@@ -36,6 +36,11 @@ const svgReturner = (type) => {
   );
 };
 function Home({ history }) {
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      history.push("/admin");
+    }
+  }, []);
   const TITLE = "Sparta || Нүүр хуудас";
   return (
     <React.Fragment>

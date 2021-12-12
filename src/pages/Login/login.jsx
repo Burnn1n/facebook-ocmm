@@ -1,18 +1,63 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import Axios from "axios";
 
 const Login = ({ history }) => {
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      history.push("/");
+    }
+  }, []);
+
   const TITLE = "Sparta || Нэвтрэх";
   const [emailInput, setEmailInput] = useState("");
-  const [errorEmail, setErrorEmail] = useState(true);
+  const [errorEmail, setErrorEmail] = useState(false);
   const [errorEmailText, setErrorEmailText] = useState("Алдаа");
+
   const [passwordInput, setPasswordInput] = useState("");
   const [errorPasswordText, setErrorPasswordText] = useState("Алдаа");
   const [errorPassword, setErrorPassword] = useState(false);
+
   const handleSubmit = (event) => {
-    alert("A name was submitted: " + emailInput);
+    var success = 0;
+    if (emailInput.length < 1) {
+      setErrorEmail(true);
+      setErrorEmailText("Бөглөх ёстой");
+    } else {
+      setErrorEmail(false);
+      success++;
+    }
+
+    if (passwordInput.length < 4) {
+      setErrorPassword(true);
+      setErrorPasswordText("4-с бага байж болохгүй");
+    } else {
+      setErrorPassword(false);
+      success++;
+    }
+    if (success === 2) {
+      Axios.post("http://localhost:3001/login", {
+        email: emailInput,
+        password: passwordInput,
+      }).then((response) => {
+        if (response.data.message) {
+          setErrorEmail(true);
+          setErrorEmailText("Имэйл хаяг эсвэл нууц үг буруу");
+          setErrorPassword(true);
+          setErrorPasswordText("Имэйл хаяг эсвэл нууц үг буруу");
+        } else {
+          setErrorEmail(false);
+          setErrorPassword(false);
+
+          localStorage.setItem("user", JSON.stringify(response.data[0]));
+          console.log(response.data[0]);
+
+          history.push("/");
+        }
+      });
+    }
+
     event.preventDefault();
   };
   return (

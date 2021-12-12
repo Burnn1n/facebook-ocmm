@@ -4,9 +4,6 @@ import { withRouter } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 class Layout extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <React.Fragment>
