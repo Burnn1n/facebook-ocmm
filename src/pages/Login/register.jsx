@@ -10,7 +10,7 @@ const Register = ({ history }) => {
     }
   }, []);
 
-  console.log(JSON.parse(localStorage.getItem("user")));
+  //console.log(JSON.parse(localStorage.getItem("user")));
 
   const TITLE = "Sparta || Нэвтрэх";
   const [nameInput, setNameInput] = useState("");

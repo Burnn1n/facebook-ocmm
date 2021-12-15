@@ -11,11 +11,25 @@ class Layout extends Component {
           {/*
           dynamic header
           */}
-          <Header />
-          <div className="pt-12 mx-auto px-5" style={{ maxWidth: "1336px" }}>
+          <div className="z-20">
+            <Header />
+          </div>
+
+          <div
+            className={`pt-12 mx-auto px-5 ${
+              window.location.pathname === "/admin" ? "pb-16" : ""
+            }`}
+            style={{ maxWidth: "1336px" }}
+          >
             {this.props.children}
           </div>
-          <Footer />
+          <div
+            className={`z-50 ${
+              window.location.pathname === "/admin" ? "hidden" : ""
+            }`}
+          >
+            <Footer />
+          </div>
         </div>
         {/* <Rightbar /> */}
       </React.Fragment>

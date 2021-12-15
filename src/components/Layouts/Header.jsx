@@ -18,7 +18,7 @@ const Header = ({ history }) => {
 
   return (
     <React.Fragment>
-      <header className="fixed h-12 w-full border-b z-50 bg-white">
+      <header className="fixed h-12 w-full border-b z-10 bg-white">
         <div
           className="flex justify-between mx-auto items-center h-full px-5"
           style={{ maxWidth: "1336px" }}
@@ -31,7 +31,13 @@ const Header = ({ history }) => {
                   alt=""
                   className="w-7 h-7 object-cover"
                 />
-                <span className="font-bold text-2xl text-blue-600">Sparta</span>
+                <span
+                  className={`font-bold text-2xl text-blue-600 ${
+                    window.location.pathname === "/admin" ? "hidden" : ""
+                  }`}
+                >
+                  Sparta
+                </span>
               </div>
             </Link>
           </div>
